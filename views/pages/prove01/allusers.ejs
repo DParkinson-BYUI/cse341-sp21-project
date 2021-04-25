@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <% include ../../includes/header.ejs %>
+        <style>
+            .masked {
+                -webkit-text-security: disc;
+            }
+        </style>
+</head>
+
+<body>
+    <% include ../../includes/nav.ejs %>
+        <div class="jumbotron text-center">
+            <div class="container">
+                <h1>
+                    <%= title %>
+                </h1>
+            </div>
+        </div>
+        <div class="container">
+
+            <div class="row">
+                <div class="col-sm-offset-2 col-sm-8">
+                    <!-- username -->
+                    <div class="panel panel-default">
+                        <div class="panel-heading">Usernames</div>
+                        <div class="panel-body">
+                            <% if (userData.length > 0) { %>
+                                <ul>
+                                  <% for (let data of userData) { %>
+                                  <li><%= data%></li>
+                                  <% } %>
+                                </ul>
+                                <% } %>                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+</body>
+
+</html>
