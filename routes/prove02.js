@@ -19,7 +19,7 @@ router.post('/addBook', (req, res, next) => {
 
 router.post('/remove-book', (req, res, next) => {
     books.splice(req.body.deleteBook, 1)
-    res.redirect('/prove02/');
+    res.redirect('/prove02/bookinfo');
 });
 
 router.get('/',(req, res, next) => {
