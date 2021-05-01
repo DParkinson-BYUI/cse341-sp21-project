@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <% include ../../includes/header.ejs %>
+</head>
+
+<body>
+  <% include ../../includes/nav.ejs %>
+  <div class="jumbotron text-center">
+    <div class="container">
+      <h1><%= title %></h1>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-offset-2 col-md-offset-2" style="padding: 0 15px">
+        <% if (books.length > 0) { %>
+          <div class="text-center">
+            <h2>Your book list!</h2>
+          </div>
+        <% for (let book of books) { %>
+        <div class="book">
+          <div class="col-6 col-6">
+          <h3>
+            Title:
+            <%= book.title %>
+          </h3>
+          <% if (book.author != "") { %>
+            <h3>
+              Author:
+              <%= book.author %>
+            </h3>              
+            <% } %>                  
+          <h3>
+            Book Summary:
+            <%= book.summary %>
+          </h3>
+          <form action="/prove02/remove-book" method="POST">
+            <input type="hidden" name="deleteBook" value="<%= books.indexOf(book) %> ">
+            <button type="submit">Delete this book</button>
+          </form>
+        </div>
+        </div>
+        <% } %>
+        <% } else { %>
+        <h2>You haven't saved any books!</h2>
+        <% } %>
+      </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-offset-2 col-md-offset-2" style="padding: 25px 15px">
+        <a href="/prove02">Return to Prove02</a>
+    </div>
+    </div>
+  </div>
+</body>
+
+</html>
